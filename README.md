@@ -20,16 +20,39 @@ Register at http://openshift.redhat.com/, and then create a diy (do-it-yourself)
 
 You will see something like the following:
 
-```bash
-    Confirming application 'play2demo' is available:  Success!
 
-    play2demo published:  http://play2demo-opensas.rhcloud.com/
-    git url:  ssh://uuid@play2demo-yourdomain.rhcloud.com/~/git/play2demo.git/
+```bash
+Creating application 'play2demo'
+=========================
+
+  Namespace: yourdomain
+  Gear Size: default
+  Scaling:   no
+  Cartridge: diy-0.1
+
+Your application's domain name is being propagated worldwide (this might take a minute)...
+play2demo @ http://play2demo-yourdomain.rhcloud.com/
+=================================
+  Application Info
+  ================
+    Gear Size = small
+    Git URL   = ssh://your_uuid@play2demo-yourdomain.rhcloud.com/~/git/play2demo.git/
+    SSH URL   = ssh://your_uuid@play2demo-yourdomain.rhcloud.com
+    UUID      = your_uuid
+    Created   = 6:06 PM
+  Cartridges
+  ==========
+    diy-0.1
+
+RESULT:
+Application play2demo was created.
+Disclaimer: This is an experimental cartridge that provides a way to try unsupported languages,
+frameworks, and middleware on Openshift.
 ```
 
 Copy and paste the git url to add it as a remote repo (replace the uuid part with your own!)
 
-    git remote add origin ssh://uuid@play2demo-yourdomain.rhcloud.com/~/git/play2demo.git/
+    git remote add origin ssh://your_uuid@play2demo-yourdomain.rhcloud.com/~/git/play2demo.git/
     git pull -s recursive -X theirs origin master
     git add .
     git commit -m "initial deploy"
@@ -51,7 +74,7 @@ And add your changes to git's index, commit and push the repo upstream:
 
 That's it, you can now see your application running at:
 
-    http://play2scala-yournamespace.rhcloud.com
+    http://play2demo-yourdomain.rhcloud.com
 
 The first time you do it, it will take quite a few minutes to complete, because git has to upload play's dependencies, but after that git is smart enough to just upload the differences.
 
